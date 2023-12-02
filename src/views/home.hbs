@@ -1,0 +1,14 @@
+<div class="product-list">
+  <h1>Lista de productos</h1>
+  <ul class="product-items">
+    {{#each products}}
+      <li class="product-item">
+        <strong class="product-title">{{title}}</strong> - Precio: USD <span class="product-price">{{price}}</span> - Stock: <span class="product-stock">{{stock}}</span>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/home.js"></script>

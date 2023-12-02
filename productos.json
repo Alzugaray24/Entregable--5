@@ -1,0 +1,57 @@
+[
+  {
+    "id": "0b16dc70-a1f8-44cd-bc27-58f295c8bfc2",
+    "title": "Laptop",
+    "description": "laptop normal",
+    "code": "23",
+    "price": 1234,
+    "status": true,
+    "stock": 32,
+    "category": "friend",
+    "thumbnails": []
+  },
+  {
+    "id": "13ab0ccf-f42b-43c0-a09c-50e821a407fa",
+    "title": "Laptop Gamer",
+    "description": "Potente laptop para gaming",
+    "code": "LG123",
+    "price": 1500,
+    "status": true,
+    "stock": 20,
+    "category": "friend",
+    "thumbnails": []
+  },
+  {
+    "id": "5b9e839f-b4b1-4ec5-87fe-7dcc2ee56005",
+    "title": "Mouse Gaming",
+    "description": "Mouse ergonómico para gaming",
+    "code": "MG456",
+    "price": 50,
+    "status": true,
+    "stock": 50,
+    "category": "friend",
+    "thumbnails": []
+  },
+  {
+    "id": "b80787e1-65b4-4a91-8638-232db9aca5d8",
+    "title": "Teclado Mecánico",
+    "description": "Teclado con interruptores mecánicos",
+    "code": "TM789",
+    "price": 120,
+    "status": true,
+    "stock": 30,
+    "category": "friend",
+    "thumbnails": []
+  },
+  {
+    "id": "7798a401-7c1f-4bb7-a5dd-7b1b3813600b",
+    "title": "Monitor MSI",
+    "description": "monitor gamer",
+    "code": "BM789",
+    "price": 300,
+    "status": true,
+    "stock": 10,
+    "category": "friend",
+    "thumbnails": []
+  }
+]
