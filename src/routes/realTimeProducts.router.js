@@ -1,32 +1,49 @@
-import express from 'express';
-import { Server } from 'socket.io';
-import ProductManager from '../managers/productManager.js';
+import express from "express";
+import { Server } from "socket.io";
+import ProductManager from "../managers/productManager.js";
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.render('realTimeProducts', {
-    style: 'realTimeProducts.css',
+router.get("/", (req, res) => {
+  res.render("realTimeProducts", {
+    style: "realTimeProducts.css",
     productsRealTime: [],
   });
 });
 
 export const handleWebSocket = (httpServer) => {
   const io = new Server(httpServer);
-  const productManager = new ProductManager('productos.json');
+  const productManager = new ProductManager("productos.json");
 
-  io.on('connection', (socket) => {
-    console.log('Nuevo usuario conectado');
+  io.on("connection", (socket) => {
+    console.log("Nuevo usuario conectado");
 
     const productsRealTime = productManager.getProducts();
-    socket.emit('productsRealTime', productsRealTime);
+    socket.emit("productsRealTime", productsRealTime);
 
-    productManager.on('update', (updatedProducts) => {
-      io.emit('productsRealTime', updatedProducts);
+    productManager.on("update", (updatedProducts) => {
+      io.emit("productsRealTime", updatedProducts);
     });
 
-    socket.on('disconnect', () => {
-      console.log('Usuario desconectado');
+    socket.on("nuevo_producto", (data) => {
+      if (
+        !data.title ||
+        !data.price ||
+        !data.stock ||
+        data.title === "" ||
+        data.price === "" ||
+        data.stock === ""
+      ){
+        socket.emit("mensaje_error", "Todos los campos son requeridos")
+        return;
+      }
+
+      productsRealTime.push(data);
+      io.emit("nuevos_productos", productsRealTime);
+    });
+
+    socket.on("disconnect", () => {
+      console.log("Usuario desconectado");
     });
   });
 };
