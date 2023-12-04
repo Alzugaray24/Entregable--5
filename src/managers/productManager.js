@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { EventEmitter } from 'events';
+import { v4 as uuidv4 } from 'uuid';
 
 class ProductManager extends EventEmitter {
   constructor(filePath) {
@@ -27,12 +28,23 @@ class ProductManager extends EventEmitter {
     this.emit('update', this.products);
   }
 
+  generateUUID() {
+    return uuidv4();
+  }
+
   getProducts() {
     return this.products;
   }
 
   addProduct(product) {
-    this.products.push(product);
+    const productId = this.generateUUID();
+    const productWithId = { id: productId, ...product };
+
+    // Convertir price y stock a números
+    productWithId.price = parseFloat(productWithId.price);
+    productWithId.stock = parseInt(productWithId.stock);
+
+    this.products.push(productWithId);
     this.writeToFile();
   }
 
@@ -40,6 +52,10 @@ class ProductManager extends EventEmitter {
     const index = this.products.findIndex((el) => el.id === productId);
 
     if (index !== -1) {
+      // Convertir price y stock a números antes de actualizar
+      newData.price = parseFloat(newData.price);
+      newData.stock = parseInt(newData.stock);
+
       this.products[index] = { ...this.products[index], ...newData };
       this.writeToFile();
       return true;

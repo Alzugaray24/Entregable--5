@@ -1,3 +1,4 @@
+/* Estilos generales */
 .product-list {
   margin: 20px;
   padding: 20px;
@@ -59,17 +60,18 @@
   background-color: #218838;
 }
 
+/* Lista de productos en tiempo real */
 ul {
   list-style-type: none;
   padding: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .product-list-item {
-  width: 100%;
-  margin-bottom: 20px;
+  width: 300px;
+  margin: 20px;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 12px;
@@ -86,14 +88,21 @@ ul {
 
 .product-title {
   color: #333;
-  font-size: 44px;
+  font-size: 20px;
   font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-description, .product-code {
+  color: #666;
+  font-size: 16px;
 }
 
 .product-price {
   color: #28a745;
   font-size: 18px;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .product-stock {
@@ -101,14 +110,17 @@ ul {
   font-style: italic;
 }
 
-@media (max-width: 768px) {
-  .product-list-item {
-    flex-basis: 80%;
-  }
+/* Mensaje de error */
+#error-title {
+  display: none;
 }
 
-/* Faltan datos */
-
-#error-title, #error-price, #error-stock{
-  display: none;
+.error-popup-class {
+  background-color: #d9534f;
+  color: #ffffff;
+  border: 1px solid #d43f3a;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 16px;
 }

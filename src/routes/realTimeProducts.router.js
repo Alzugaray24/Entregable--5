@@ -3,43 +3,37 @@ import { Server } from "socket.io";
 import ProductManager from "../managers/productManager.js";
 
 const router = express.Router();
+const productManager = new ProductManager("productos.json");
 
 router.get("/", (req, res) => {
   res.render("realTimeProducts", {
     style: "realTimeProducts.css",
-    productsRealTime: [],
+    productsRealTime: productManager.getProducts(),
   });
 });
 
 export const handleWebSocket = (httpServer) => {
   const io = new Server(httpServer);
-  const productManager = new ProductManager("productos.json");
 
   io.on("connection", (socket) => {
-    console.log("Nuevo usuario conectado");
-
-    const productsRealTime = productManager.getProducts();
-    socket.emit("productsRealTime", productsRealTime);
+    socket.emit("productsRealTime", productManager.getProducts());
 
     productManager.on("update", (updatedProducts) => {
       io.emit("productsRealTime", updatedProducts);
     });
 
     socket.on("nuevo_producto", (data) => {
-      if (
-        !data.title ||
-        !data.price ||
-        !data.stock ||
-        data.title === "" ||
-        data.price === "" ||
-        data.stock === ""
-      ){
-        socket.emit("mensaje_error", "Todos los campos son requeridos")
+      const requiredFields = ["title", "description", "code", "price", "stock"];
+      const missingFields = requiredFields.filter(field => !data[field]);
+
+      if (missingFields.length > 0) {
+        const errorMessage = `Los campos siguientes son requeridos: ${missingFields.join(", ")}`;
+        socket.emit("mensaje_error", errorMessage);
         return;
       }
 
-      productsRealTime.push(data);
-      io.emit("nuevos_productos", productsRealTime);
+      productManager.addProduct(data);
+      io.emit("nuevos_productos", productManager.getProducts());
     });
 
     socket.on("disconnect", () => {

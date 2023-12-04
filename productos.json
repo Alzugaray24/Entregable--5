@@ -33,24 +33,13 @@
     "thumbnails": []
   },
   {
-    "id": "b80787e1-65b4-4a91-8638-232db9aca5d8",
-    "title": "Teclado Mecánico",
-    "description": "Teclado con interruptores mecánicos",
-    "code": "TM789",
-    "price": 120,
-    "status": true,
-    "stock": 30,
-    "category": "friend",
-    "thumbnails": []
-  },
-  {
-    "id": "7798a401-7c1f-4bb7-a5dd-7b1b3813600b",
-    "title": "Monitor MSI",
-    "description": "monitor gamer",
-    "code": "BM789",
-    "price": 300,
-    "status": true,
+    "id": "9850ca93-5e26-44c6-abb1-e59e37a1e64e",
+    "title": "Laptop",
+    "description": "Gamer",
+    "code": "12BFL",
+    "price": 1200,
     "stock": 10,
+    "status": true,
     "category": "friend",
     "thumbnails": []
   }

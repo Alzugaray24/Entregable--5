@@ -2,11 +2,10 @@
   <h1 class="product-list-title">Lista de productos en tiempo real</h1>
      <form class="product-form" action="realTimeProducts.hbs" method="post">
       <input type="text" id="title" name="title" class="product-input" placeholder="Ingrese un producto" required>
-      <p id="error-title" style="color: red;">Debe ingresar un titulo</p>
+      <input type="text" id="description" name="description" class="product-input" placeholder="Ingrese una descripcion">
+      <input type="text" id="code" name="code" class="product-input" placeholder="Ingrese el codigo">
       <input type="number" id="price" name="price" class="product-input" placeholder="Ingrese un precio" required>
-      <p id="error-price" style="color: red;">Debe ingresar un precio</p>
-      <input type="number" id="stock" name="stock" class="product-input" placeholder="Ingrese la cantidad de productos que hay" required>
-      <p id="error-stock" style="color: red;">Debe ingresar un stock</p>
+      <input type="number" id="stock" name="stock" class="product-input" placeholder="Ingrese la cantidad" required>
       <input type="submit" id="boton" value="Enviar" class="product-submit">
     </form>
   <ul id="productosRealTime" class="product-items"></ul>
