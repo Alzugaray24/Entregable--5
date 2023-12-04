@@ -40,8 +40,6 @@ boton.addEventListener("click", (e) => {
     thumbnails: [],
   };
 
-  console.log(product);
-
   socket.emit("nuevo_producto", product);
 });
 
@@ -57,13 +55,13 @@ socket.on("nuevos_productos", (data) => {
   });
 
   div.innerHTML = productsHTML.join("");
-});
 
-document.getElementById("title").value = "";
-document.getElementById("description").value = "";
-document.getElementById("code").value = "";
-document.getElementById("price").value = "";
-document.getElementById("stock").value = "";
+  document.getElementById("title").value = "";
+  document.getElementById("description").value = "";
+  document.getElementById("code").value = "";
+  document.getElementById("price").value = "";
+  document.getElementById("stock").value = "";
+});
 
 socket.on("mensaje_error", (data) => {
   Swal.fire({

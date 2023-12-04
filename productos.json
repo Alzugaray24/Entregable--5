@@ -42,5 +42,38 @@
     "status": true,
     "category": "friend",
     "thumbnails": []
+  },
+  {
+    "id": "a7abec38-42b1-40e2-a04b-0cbf341b78ff",
+    "title": "Laptop",
+    "description": "sdasd",
+    "code": "asdasd",
+    "price": 12,
+    "stock": 32,
+    "status": true,
+    "category": "friend",
+    "thumbnails": []
+  },
+  {
+    "id": "59178624-cce7-453d-91b8-253c8ecfba4b",
+    "title": "dsadas",
+    "description": "asdds",
+    "code": "123",
+    "price": 21,
+    "stock": 2,
+    "status": true,
+    "category": "friend",
+    "thumbnails": []
+  },
+  {
+    "id": "fda8525a-edd4-4a55-abd0-79611933d40f",
+    "title": "dasdas",
+    "description": "asdasd",
+    "code": "asdasd",
+    "price": 232,
+    "stock": 2,
+    "status": true,
+    "category": "friend",
+    "thumbnails": []
   }
 ]
